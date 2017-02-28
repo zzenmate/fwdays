@@ -25,6 +25,8 @@ before_script:
     - app/console doctrine:database:create --env=test > /dev/null
     - app/console doctrine:schema:create --env=test > /dev/null
     - app/console doctrine:fixtures:load --no-interaction --env=test > /dev/null
+    - app/console assets:install web --symlink --env=test
+    - php app/console assetic:dump --env=test
     - app/console cache:warmup --env=test > /dev/null
     - sh -e /etc/init.d/xvfb start
     - export DISPLAY=:99
