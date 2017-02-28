@@ -4,7 +4,7 @@ php:
     - 5.4
 
 addons:
-    firefox: "45.6.0"
+    firefox: "38.0"
     apt:
         packages:
             - xvfb
@@ -28,9 +28,9 @@ before_script:
     - app/console cache:warmup --env=test > /dev/null
     - sh -e /etc/init.d/xvfb start
     - export DISPLAY=:99
-    - curl http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar > selenium.jar
+    - curl http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar > selenium.jar
     - java -jar selenium.jar > /dev/null &
-    - sleep 5
+    - sleep 20
 
 script:
     - bin/phpunit -c app/
