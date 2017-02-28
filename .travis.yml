@@ -3,6 +3,12 @@ language: php
 php:
     - 5.4
 
+addons:
+    firefox: "45.6.0"
+    apt:
+        packages:
+            - xvfb
+
 before_install:
     - sudo apt-get update > /dev/null
 
